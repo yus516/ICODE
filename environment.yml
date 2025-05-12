@@ -1,0 +1,95 @@
+name: SENGC
+channels:
+  - pytorch
+  - defaults
+  - conda-forge
+  - bioconda
+
+dependencies:
+  # System packages
+  - _libgcc_mutex=0.1
+  - _pytorch_select=0.1
+  - blas=1.0
+  - ca-certificates
+  - certifi
+  - cffi
+  - cudatoolkit=11.4
+  - cudnn=8.2.1
+  - dbus
+  - expat
+  - fontconfig
+  - freetype
+  - glib
+  - gst-plugins-base
+  - gstreamer
+  - icu
+  - intel-openmp
+  - jpeg
+  - lcms2
+  - ld_impl_linux-64
+  - libedit
+  - libffi
+  - libgcc-ng
+  - libgfortran-ng
+  - libpng
+  - libstdcxx-ng
+  - libtiff
+  - libuuid
+  - libxcb
+  - libxml2
+  - lz4-c
+  - ncurses
+  - ninja
+  - openssl
+  - pcre
+  - qt
+  - readline
+  - sqlite
+  - tk
+  - wheel
+  - xz
+  - zlib
+  - zstd
+
+  # Python and essential libraries
+  - python=3.8  # Upgraded from 3.7 for better compatibility
+  - pip
+  - setuptools
+  - six
+
+  # Numerical and ML Libraries
+  - numpy
+  - scipy
+  - pandas
+  - scikit-learn
+  - statsmodels
+  - seaborn
+
+  # PyTorch with CUDA 11.4
+  - pytorch=1.10.0  # Compatible with CUDA 11.4
+  - torchvision=0.11.0
+  - torchaudio
+
+  # Optimization and Math Libraries
+  - cvxpy
+  - cvxpy-base
+  - ecos
+  - osqp
+  - scs
+
+  # Visualization Libraries
+  - matplotlib
+  - matplotlib-base
+  - cycler
+  - kiwisolver
+  - pillow
+  - pyparsing
+  - pyqt
+  - tornado
+
+  # Other Utilities
+  - joblib
+  - python-dateutil
+  - pytz
+  - patsy
+  - sip

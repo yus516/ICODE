@@ -1,0 +1,18 @@
+# screen -S my_experiment -L -Logfile "logs/$(date +'%Y-%m-%d_%H-%M-%S').log"
+
+python run_grid_search.py  \
+  --experiment power             \
+  --model gvar                      \
+  --p 20                            \
+  --T 500                           \
+  --F 10                            \
+  --num-sim 10                      \
+  --K 5                             \
+  --num-hidden-layers 2             \
+  --hidden-layer-size 50            \
+  --batch-size 64                   \
+  --num-epochs 1000                 \
+  --initial-lr 0.0001               \
+  --seed 42                         \
+  --cyber-type step
+  

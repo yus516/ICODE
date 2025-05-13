@@ -1,55 +1,83 @@
-# ICODE
+# ICODE: Interpretable Causality ODE Networks
 
-## Overview
+This repository contains the source code and datasets for **ICODE**, a model designed for explainable anomaly detection via interpretable dynamical systems.
 
-ICODE is a framework for causal discovery using Neural Ordinary Differential Equations (Neural ODEs). It enables the simulation of measurement and cyber anomaly data and uses learned dynamics to uncover causal relationships.
+---
 
-## Installation
+## 🚀 Installation
 
 1. **Clone the repository:**
 
-   ```bash
-   git clone https://github.com/yus516/ICODE.git
-   cd ICODE
-   ```
+```bash
+git clone https://github.com/yus516/ICODE.git
+cd ICODE
+```
 
 2. **Set up the Conda environment:**
 
-   ```bash
-   conda env create -f environment.yml
-   conda activate icode
-   ```
-
-   This will install all necessary dependencies including PyTorch, NumPy, SciPy, and others.
-
-## Data Generation
-
-Run the following scripts to generate datasets:
-
-- **Measurement anomaly data:**
-
-  ```bash
-  python run_grid_search_power
-  ```
-
-- **Cyber anomaly data:**
-
-  ```bash
-  python run_grid_search_lorenz96
-  ```
-
-Output files will be saved under the `datasets/` directory.
-
-## Running Experiments
-
-To train the Neural ODE model and perform causal discovery, execute:
-
 ```bash
-python training.py
+conda env create -f environment.yml
+conda activate ICODE
 ```
 
-This script uses the generated datasets and outputs results including the learned causal graph.
+---
 
-## Causal Graph Output
+## 📊 Data Generation
 
-During the run of `training.py`, the causal graph is saved. Look for lines like:
+Run the following scripts to generate or load datasets:
+
+### 🔁 Simulated Anomaly Data
+
+This includes:
+- **Lorenz 96**
+- **Lotka–Volterra**
+- **Reaction–Diffusion**
+
+📌 Note:
+- If a dataset file is not detected, it will be simulated automatically.
+- If found, it will be loaded instead.
+- Measurement anomalies are added via `add_measurement_anomaly`.
+- Cyber anomalies are introduced using `simulate_with_cyber_anomaly`.
+
+To train the Neural ODE model and infer causal graphs:
+
+```bash
+bash run_grid_search_lorenz96
+```
+
+#### Parameters Description
+-`num-sim`:             # Number of simulation
+-`K`:                   # Used only in lorenz 96 system
+-`num-hidden-layers`:   # Number of hidden layer
+-`hidden-layer-size`:   # Number of units per hidden layer
+-`batch-size`:          # Batch size used during training
+-`num-epochs`:          # Number of training epochs
+-`initial-lr`:          # Initial learning rate for optimization
+-`seed`:                # Random seed for reproducibility
+
+### ⚡ Power System Anomaly Data
+
+For simulating power system anomalies, refer to [PNNL GridSTAGE](https://github.com/pnnl/GridSTAGE).
+
+To execute training and evaluation:
+
+```bash
+bash run_grid_search_power
+```
+
+📁 The adjacency matrix output file is defined in line 111 of `run_grid_search.py`.  
+📂 All outputs will be saved in the `tmp` directory.
+
+---
+
+## 📈 Running Analysis
+
+To evaluate results and extract causal graphs (including identifying measurement and cyber anomalies with root causes):
+
+```bash
+python analysis.py
+```
+
+🧠 Additional analysis and visualization are included in `show-dynamical-causal.ipynb`.
+
+---

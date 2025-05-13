@@ -72,7 +72,12 @@ bash run_grid_search_power
 
 ## 📈 Running Analysis
 
-To evaluate results and extract causal graphs (including identifying measurement and cyber anomalies with root causes):
+To evaluate results and get the type and root cause, use (including identifying measurement and cyber anomalies with root causes):
+```bash
+python check_measure_cyber.py
+```
+
+For the power system, use
 
 ```bash
 python analysis.py

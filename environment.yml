@@ -1,4 +1,5 @@
-name: SENGC
+name: ICODE
+
 channels:
   - pytorch
   - defaults
